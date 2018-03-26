@@ -13,9 +13,7 @@ Add-VMhostsToCluster -vCenter 192.168.130.11 -clusterName Cluster01 -esxihosts h
 
 .NOTES
 
-
 .LINK
-
 
 #>
  
