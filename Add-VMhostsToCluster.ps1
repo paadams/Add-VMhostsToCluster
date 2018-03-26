@@ -1,5 +1,25 @@
-# PowerCLI function to add ESXi hosts to vCenter Server
-# Version 1.2
+<#
+
+.SYNOPSIS
+This is a function to add VMware ESXi hosts to an existing cluster in vCenter
+
+.DESCRIPTION
+The function will add one or more hosts to an existing cluster
+
+.EXAMPLE
+Add-VMhostsToCluster -vCenter vCenter.domain.local -clusterName "Cluster 01" -esxihosts (Get-Content C:\Temp\vmhosts.txt)
+
+Add-VMhostsToCluster -vCenter 192.168.130.11 -clusterName Cluster01 -esxihosts host01.domain.local, host02.domain.local
+
+.NOTES
+
+
+.LINK
+
+
+#>
+
+Write-Host ‘Hello World!’
 # 
 Function Add-VMhostsToCluster {
     Param(
