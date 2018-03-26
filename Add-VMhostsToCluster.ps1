@@ -1,18 +1,22 @@
 # PowerCLI function to add ESXi hosts to vCenter Server
-# Version 1.1
+# Version 1.2
 # 
-function Add-VMhostsToCluster {
+Function Add-VMhostsToCluster {
     Param(
         [string]$vCenter,
         [string]$clusterName,
         [string[]]$esxihosts
     )
-  
+    
+    BEGIN {
+        # Get and store vCente and ESXi credentials
         Write-host Enter your vCenter Credentials. -foreground green
         $vCenterCred = Get-Credential
-
         Write-host Enter your ESXi username and password. -foreground green
         $esxiCred = Get-Credential  
+    } # BEGIN
+
+    PROCESS {
         # ---------------------------------------------------
         #
         #Connect to vCenter Server
@@ -28,8 +32,15 @@ function Add-VMhostsToCluster {
         Add-VMHost $esxihost -Location $clusterName -Credential $esxiCred -Force
         } #foreach
 
+    } # PROCESS
+
+    END {
         # Disconnect from vCenter Server
         write-host "Disconnecting to vCenter Server $vcenter" -foreground green
         disconnect-viserver -confirm:$false | out-null
 
-    } #function
+    } # END
+
+} # End Add-VMhostsToCluster function
+
+    
