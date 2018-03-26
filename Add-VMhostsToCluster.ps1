@@ -1,19 +1,25 @@
 # PowerCLI script to add ESXi hosts to vCenter Server
 # Version 1.0
-# Magnus Andersson – Sr Staff Solution Architect @Nutanix
-#
-#
+# 
 # ---------------------------------------------------
 # Edit the information below to match your environment
 #
 # Specify vCenter Server, vCenter Server username, vCenter Server user password, vCenter Server location which can be the Datacenter, a Folder or a Cluster (which I used).
-$vCenter="vcenter01.vcdx56.local"
-$vCenterUser="mandersson@vcdx56.local"
+# Parameterize, take user input instead of hardcoded
+$vCenter="vcenter"
+
+# Change to Get-Credential
+$vCenterUser=""
 $vCenterUserPassword="not-secret"
+
+# Parameterize this piece
 $vcenterlocation="npx005-01"
 #
 # Specify the ESXi host you want to add to vCenter Server and the user name and password to be used.
-$esxihosts=("esxinut001.vcdx56.local","esxinut002.vcdx56.local","esxinut003.vcdx56.local","esxinut004.vcdx56.local")
+# Paramtererize, take input from pipeline, get-content
+$esxihosts=("host01","host02")
+
+# Change to Get-Credential
 $esxihostuser="root"
 $esxihostpasswd="not-secret"
 #
